@@ -11,6 +11,7 @@ import java.util.List;
 
 
 public class UserDaoHibernateImpl extends Util implements UserDao {
+    
     private final SessionFactory sessionFactory = Util.getSessionFactory();
 
 
@@ -22,11 +23,10 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
     @Override
     public void createUsersTable() {
 
-
         String sqlQuery = "CREATE TABLE IF NOT EXISTS users " +
                 "(id BIGINT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(64), lastname VARCHAR(64), age TINYINT)";
+        
         Transaction transaction = null;
-
 
         try (Session openSession = sessionFactory.openSession()) {
             transaction = openSession.beginTransaction();
@@ -45,8 +45,6 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
 
         String sqlQuery = "DROP TABLE IF EXISTS users";
         Transaction transaction = null;
-
-
 
         try (Session openSession = sessionFactory.openSession()) {
             transaction = openSession.beginTransaction();
