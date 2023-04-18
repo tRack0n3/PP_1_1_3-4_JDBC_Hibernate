@@ -110,7 +110,7 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
         return list;
 
     }
-
+фывфв
     @Override
     public void cleanUsersTable() {
 
